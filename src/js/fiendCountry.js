@@ -17,7 +17,7 @@ function onSearch(e) {
     return;
   }
   clearMarkup();
-  console.log(fetchCountries(e.target.value));
+  fetchCountries(e.target.value).then;
 }
 function clearMarkup() {
   refs.countryList.innerHTML = '';

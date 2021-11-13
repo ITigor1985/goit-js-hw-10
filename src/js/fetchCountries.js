@@ -6,7 +6,7 @@ const FILTER = '?fields=name,capital,population,flags,languages';
 //console.log(fetchCountries(name));
 
 export default function fetchCountries(name) {
-  fetch(`${END_POINT}${name}${FILTER}`).then(response => {
+  return fetch(`${END_POINT}${name}${FILTER}`).then(response => {
     if (!response.ok) {
       throw new Error(response.status);
     }
