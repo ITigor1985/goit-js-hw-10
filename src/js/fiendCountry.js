@@ -32,19 +32,37 @@ function clearMarkup() {
 function renderUserList(...countries) {
   const markup = countries
     .map(country => {
-      console.log(country);
-      country.forEach(element => {
-        console.log(element.name.common);
-        refs.countryList.insertAdjacentHTML(
-          'beforeend',
-          `<li>
-          <p><img src = "${element.flags.png} "</p>
-          <p>${element.name.common}</p>
+      if (country.length > 10) {
+        Notify.info('Too many matches found. Please enter a more specific name.');
+        return;
+      }
+      if (country.length > 1) {
+        console.log(country);
+        country.forEach(element => {
+          refs.countryList.insertAdjacentHTML(
+            'beforeend',
+            `<li>
+          <p><img class="flagList" src = "${element.flags.png} "</p>
+          <p class="nameCoutryList">${element.name.common}</p>
         </li>`,
-        );
-      });
+          );
+        });
+      } else {
+        country.forEach(element => {
+          refs.countryInfo.insertAdjacentHTML(
+            'beforeend',
+            `<p class="nameCoutry">${element.name.common}</p>
+            <img class="flag" src = "${element.flags.png} ">
+             
+             <p><span class="description">Capital: </span>${element.capital}</p>
+             <p><span class="description">Population: </span>${element.population}</p>
+             <p><span class="description">Languages: </span>${Object.values(
+               element.languages,
+             )}</p>`,
+          );
+        });
+      }
     })
     .join('');
   console.log(markup);
 }
-//console.log(fetchCountries('ukr'));

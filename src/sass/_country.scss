@@ -1,0 +1,46 @@
+.container {
+  padding-top: 100px;
+  max-width: 350px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+ul {
+  padding-left: 0;
+}
+ul li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+p {
+  font-size: 20px;
+}
+.search-box {
+  width: 312px;
+  height: 40px;
+  font-size: 20px;
+}
+.flagList {
+  width: 50px;
+  margin-right: 10px;
+}
+.nameCoutryList {
+  font-size: 30px;
+}
+
+.nameCoutry {
+  font-size: 50px;
+  margin: 0;
+  text-align: center;
+}
+.description {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 10px;
+}
