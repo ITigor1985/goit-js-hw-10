@@ -20,7 +20,7 @@ function onSearch(e) {
   if (e.target.value.length < 2) {
     Notify.info('Few letters, enter more');
   } else {
-    fetchCountries(e.target.value)
+    fetchCountries(e.target.value.trim())
       .then(countries => renderUserList(countries))
       .catch(Notify.failure);
   }
