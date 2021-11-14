@@ -17,11 +17,34 @@ function onSearch(e) {
     return;
   }
   clearMarkup();
-  fetchCountries(e.target.value).then;
+  if (e.target.value.length < 2) {
+    Notify.info('Few letters, enter more');
+  } else {
+    fetchCountries(e.target.value)
+      .then(countries => renderUserList(countries))
+      .catch(Notify.failure);
+  }
 }
 function clearMarkup() {
   refs.countryList.innerHTML = '';
   refs.countryInfo.innerHTML = '';
 }
-
+function renderUserList(...countries) {
+  const markup = countries
+    .map(country => {
+      console.log(country);
+      country.forEach(element => {
+        console.log(element.name.common);
+        refs.countryList.insertAdjacentHTML(
+          'beforeend',
+          `<li>
+          <p><img src = "${element.flags.png} "</p>
+          <p>${element.name.common}</p>
+        </li>`,
+        );
+      });
+    })
+    .join('');
+  console.log(markup);
+}
 //console.log(fetchCountries('ukr'));
